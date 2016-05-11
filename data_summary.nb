@@ -1,0 +1,2436 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     79618,       2427]
+NotebookOptionsPosition[     71606,       2141]
+NotebookOutlinePosition[     71964,       2157]
+CellTagsIndexPosition[     71921,       2154]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"CellPrint", "[", 
+  RowBox[{"Cell", "[", 
+   RowBox[{"\"\<Directory\>\"", ",", "\"\<Section\>\""}], "]"}], 
+  "]"}], "\n", 
+ RowBox[{"CellPrint", "[", 
+  RowBox[{"Cell", "[", 
+   RowBox[{"\"\<Main code & XZ independent noise:\>\"", ",", "\"\<Text\>\""}],
+    "]"}], "]"}], "\n", 
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<general_codes.nb\>\""}], "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}], "\n", 
+ RowBox[{"CellPrint", "[", 
+  RowBox[{"Cell", "[", 
+   RowBox[{"\"\<DATA & code definitions :\>\"", ",", "\"\<Text\>\""}], "]"}], 
+  "]"}], "\n", 
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<data_summary.nb\>\""}], "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}], "\n", 
+ RowBox[{"CellPrint", "[", 
+  RowBox[{"Cell", "[", 
+   RowBox[{"\"\<Depoloarizing Noise:\>\"", ",", "\"\<Text\>\""}], "]"}], 
+  "]"}], "\n", 
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<depolarizing_noise.nb\>\""}], "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}], "\n", 
+ RowBox[{"CellPrint", "[", 
+  RowBox[{"Cell", "[", 
+   RowBox[{"\"\<XZ uneven Noise:\>\"", ",", "\"\<Text\>\""}], "]"}], 
+  "]"}], "\n", 
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<xz_uneven_noise.nb\>\""}], "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}], "\n", 
+ RowBox[{"CellPrint", "[", 
+  RowBox[{"Cell", "[", 
+   RowBox[{"\"\<Approxiating polynomials:\>\"", ",", "\"\<Text\>\""}], "]"}], 
+  "]"}], "\n", 
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<approximating_polynomials.nb\>\""}], "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}], "\n", 
+ RowBox[{"CellPrint", "[", 
+  RowBox[{"Cell", "[", 
+   RowBox[{
+   "\"\<Depolarizing noise with Measurement error :\>\"", ",", 
+    "\"\<Text\>\""}], "]"}], "]"}], "\n", 
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<depolarizing_noise_ME.nb\>\""}], "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}], "\n", 
+ RowBox[{"CellPrint", "[", 
+  RowBox[{"Cell", "[", 
+   RowBox[{
+   "\"\<XZ (symmetric) noise with Measurement error :\>\"", ",", 
+    "\"\<Text\>\""}], "]"}], "]"}], "\n", 
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<xz_noise_ME.nb\>\""}],
+     "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}], "\n", 
+ RowBox[{"CellPrint", "[", 
+  RowBox[{"Cell", "[", 
+   RowBox[{
+   "\"\<XZ uneven noise with Measurement error :\>\"", ",", "\"\<Text\>\""}], 
+   "]"}], "]"}], "\n", 
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<xz_uneven_noise_ME.nb\>\""}], "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}], "\n", 
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}]}], "Code",
+ CellChangeTimes->{{3.648622877110589*^9, 3.648622965942615*^9}, {
+  3.648668797756405*^9, 3.648668818594775*^9}, {3.6487905778610983`*^9, 
+  3.648790595350235*^9}, {3.6488138872399797`*^9, 3.6488138918424263`*^9}, {
+  3.648910432143264*^9, 3.648910444991069*^9}, {3.650013419047819*^9, 
+  3.6500134257851753`*^9}, {3.650013463489766*^9, 3.650013474656348*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Directory", "Section",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.650105382533821*^9}],
+
+Cell["Main code & XZ independent noise:", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.650105382552794*^9}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Dropbox/&Projects/Small codes/general_codes.nb\"\
+\>", True->
+    StyleBox["\<\"/Users/naomi/Dropbox/&Projects/Small codes/general_codes.nb\
+\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+    "/Users/naomi/Dropbox/&Projects/Small codes/general_codes.nb", None},
+   ButtonNote->"/Users/naomi/Dropbox/&Projects/Small codes/general_codes.nb"],
+  
+  Annotation[#, "/Users/naomi/Dropbox/&Projects/Small codes/general_codes.nb",
+    "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.648868688268527*^9, 3.6488686886812963`*^9}, 
+   3.648868778019456*^9, {3.648869578494831*^9, 3.648869580578676*^9}, 
+   3.648878908269253*^9, 3.648887167823469*^9, {3.650013502292609*^9, 
+   3.65001350285973*^9}, 3.650105382580564*^9}],
+
+Cell["DATA & code definitions :", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.650105382588172*^9}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/data_summary.nb\"\>", True->
+    StyleBox["\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/data_summary.nb\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+    "/Users/naomi/Dropbox/&Projects/Small codes/data_summary.nb", None},
+   ButtonNote->"/Users/naomi/Dropbox/&Projects/Small codes/data_summary.nb"],
+  Annotation[#, "/Users/naomi/Dropbox/&Projects/Small codes/data_summary.nb", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.648868688268527*^9, 3.6488686886812963`*^9}, 
+   3.648868778019456*^9, {3.648869578494831*^9, 3.648869580578676*^9}, 
+   3.648878908269253*^9, 3.648887167823469*^9, {3.650013502292609*^9, 
+   3.65001350285973*^9}, 3.65010538261864*^9}],
+
+Cell["Depoloarizing Noise:", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.650105382623865*^9}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/depolarizing_noise.nb\"\>", True->
+    StyleBox["\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/depolarizing_noise.nb\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+    "/Users/naomi/Dropbox/&Projects/Small codes/depolarizing_noise.nb", None},
+   
+   ButtonNote->
+    "/Users/naomi/Dropbox/&Projects/Small codes/depolarizing_noise.nb"],
+  Annotation[#, 
+   "/Users/naomi/Dropbox/&Projects/Small codes/depolarizing_noise.nb", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.648868688268527*^9, 3.6488686886812963`*^9}, 
+   3.648868778019456*^9, {3.648869578494831*^9, 3.648869580578676*^9}, 
+   3.648878908269253*^9, 3.648887167823469*^9, {3.650013502292609*^9, 
+   3.65001350285973*^9}, 3.650105382652804*^9}],
+
+Cell["XZ uneven Noise:", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.650105382657179*^9}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Dropbox/&Projects/Small codes/xz_uneven_noise.nb\
+\"\>", True->
+    StyleBox["\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/xz_uneven_noise.nb\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+    "/Users/naomi/Dropbox/&Projects/Small codes/xz_uneven_noise.nb", None},
+   ButtonNote->
+    "/Users/naomi/Dropbox/&Projects/Small codes/xz_uneven_noise.nb"],
+  Annotation[#, 
+   "/Users/naomi/Dropbox/&Projects/Small codes/xz_uneven_noise.nb", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.648868688268527*^9, 3.6488686886812963`*^9}, 
+   3.648868778019456*^9, {3.648869578494831*^9, 3.648869580578676*^9}, 
+   3.648878908269253*^9, 3.648887167823469*^9, {3.650013502292609*^9, 
+   3.65001350285973*^9}, 3.650105382712134*^9}],
+
+Cell["Approxiating polynomials:", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.65010538271725*^9}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/approximating_polynomials.nb\"\>", True->
+    StyleBox["\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/approximating_polynomials.nb\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+    "/Users/naomi/Dropbox/&Projects/Small codes/approximating_polynomials.nb",
+      None},
+   ButtonNote->
+    "/Users/naomi/Dropbox/&Projects/Small codes/approximating_polynomials.nb"],
+  Annotation[#, 
+   "/Users/naomi/Dropbox/&Projects/Small codes/approximating_polynomials.nb", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.648868688268527*^9, 3.6488686886812963`*^9}, 
+   3.648868778019456*^9, {3.648869578494831*^9, 3.648869580578676*^9}, 
+   3.648878908269253*^9, 3.648887167823469*^9, {3.650013502292609*^9, 
+   3.65001350285973*^9}, 3.650105382745879*^9}],
+
+Cell["Depolarizing noise with Measurement error :", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.650105382751793*^9}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/depolarizing_noise_ME.nb\"\>", True->
+    StyleBox["\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/depolarizing_noise_ME.nb\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+    "/Users/naomi/Dropbox/&Projects/Small codes/depolarizing_noise_ME.nb", 
+     None},
+   ButtonNote->
+    "/Users/naomi/Dropbox/&Projects/Small codes/depolarizing_noise_ME.nb"],
+  Annotation[#, 
+   "/Users/naomi/Dropbox/&Projects/Small codes/depolarizing_noise_ME.nb", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.648868688268527*^9, 3.6488686886812963`*^9}, 
+   3.648868778019456*^9, {3.648869578494831*^9, 3.648869580578676*^9}, 
+   3.648878908269253*^9, 3.648887167823469*^9, {3.650013502292609*^9, 
+   3.65001350285973*^9}, 3.6501053827801847`*^9}],
+
+Cell["XZ (symmetric) noise with Measurement error :", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.650105382786811*^9}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/xz_noise_ME.nb\"\>", True->
+    StyleBox["\<\"/Users/naomi/Dropbox/&Projects/Small codes/xz_noise_ME.nb\"\
+\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+    "/Users/naomi/Dropbox/&Projects/Small codes/xz_noise_ME.nb", None},
+   ButtonNote->"/Users/naomi/Dropbox/&Projects/Small codes/xz_noise_ME.nb"],
+  Annotation[#, "/Users/naomi/Dropbox/&Projects/Small codes/xz_noise_ME.nb", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.648868688268527*^9, 3.6488686886812963`*^9}, 
+   3.648868778019456*^9, {3.648869578494831*^9, 3.648869580578676*^9}, 
+   3.648878908269253*^9, 3.648887167823469*^9, {3.650013502292609*^9, 
+   3.65001350285973*^9}, 3.650105382819709*^9}],
+
+Cell["XZ uneven noise with Measurement error :", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{3.650105382826839*^9}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/xz_uneven_noise_ME.nb\"\>", True->
+    StyleBox["\<\"/Users/naomi/Dropbox/&Projects/Small \
+codes/xz_uneven_noise_ME.nb\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+    "/Users/naomi/Dropbox/&Projects/Small codes/xz_uneven_noise_ME.nb", None},
+   
+   ButtonNote->
+    "/Users/naomi/Dropbox/&Projects/Small codes/xz_uneven_noise_ME.nb"],
+  Annotation[#, 
+   "/Users/naomi/Dropbox/&Projects/Small codes/xz_uneven_noise_ME.nb", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.648868688268527*^9, 3.6488686886812963`*^9}, 
+   3.648868778019456*^9, {3.648869578494831*^9, 3.648869580578676*^9}, 
+   3.648878908269253*^9, 3.648887167823469*^9, {3.650013502292609*^9, 
+   3.65001350285973*^9}, 3.6501053828631763`*^9}],
+
+Cell[BoxData["\<\"/Users/naomi/Dropbox/&Projects/Small codes\"\>"], "Output",
+ CellChangeTimes->{{3.648868688268527*^9, 3.6488686886812963`*^9}, 
+   3.648868778019456*^9, {3.648869578494831*^9, 3.648869580578676*^9}, 
+   3.648878908269253*^9, 3.648887167823469*^9, {3.650013502292609*^9, 
+   3.65001350285973*^9}, 3.650105382894956*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Code definitions", "Section",
+ CellChangeTimes->{{3.648868184155259*^9, 3.648868186381465*^9}, {
+  3.6488682520428658`*^9, 3.648868255903021*^9}, {3.6488695984932213`*^9, 
+  3.64886960044948*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Test 5 qubit code", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.650296125742951*^9, 
+  3.650296128241662*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "x5", ",", "x6", ",", "z7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x7", ",", "x1", ",", "z2", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "z3", ",", "z7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x3", ",", "z4", ",", "x7"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "z4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "x2", ",", "x3"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeT5", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6502960063793783`*^9, 3.650296112578312*^9}, {
+  3.650300413567033*^9, 3.650300420461419*^9}, {3.650300505975075*^9, 
+  3.65030057002675*^9}, {3.6503012322207336`*^9, 3.650301232900988*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{{3.6502961084337473`*^9, 3.650296112881568*^9}}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{{3.6502961084337473`*^9, 3.6502961128870783`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", "=", "12"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "x2", ",", "x3", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "x3", ",", "x4", ",", "z9", ",", "z10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "z4", ",", "z5", ",", "x10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "z5", ",", "z6", ",", "z10", ",", "z11"}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"z5", ",", "x6", ",", "x7", ",", "x11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z6", ",", "x7", ",", "x8", ",", "z11", ",", "z12"}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"x7", ",", "z8", ",", "z1", ",", "x12"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x8", ",", "z1", ",", "z2", ",", "z9", ",", "z12", ",", "z9"}], 
+      "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "x2", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "x8", ",", "z9"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeT9", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L", ",", "True"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.650300387869183*^9, 3.650300388267798*^9}, {
+   3.650301106581484*^9, 3.650301236287019*^9}, 3.650301301986376*^9, {
+   3.650301570060048*^9, 3.650301575888935*^9}, {3.6503017302449703`*^9, 
+   3.650301730843382*^9}, {3.650301762963476*^9, 3.650301835703464*^9}, {
+   3.650347937278263*^9, 3.650348100798983*^9}, {3.650348212552083*^9, 
+   3.650348220417676*^9}, {3.650349461000744*^9, 3.650349517318241*^9}, {
+   3.65034992116175*^9, 3.65034994177677*^9}, {3.650349978503767*^9, 
+   3.65035000204288*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{{3.650349999320229*^9, 3.650350002320277*^9}}],
+
+Cell[BoxData["\<\"PROBLEM: a logical operator is anticommuting with a \
+stabilizer generator\"\>"], "Print",
+ CellChangeTimes->{{3.650349999320229*^9, 3.650350002326049*^9}}],
+
+Cell[BoxData["\<\"The following pairs of operators don't commute: \"\>"], \
+"Print",
+ CellChangeTimes->{{3.650349999320229*^9, 3.650350002330784*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"z1\"\>", ",", "\<\"x8\"\>", ",", "\<\"z9\"\>"}], "}"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"z1\"\>", ",", "\<\"x2\"\>", ",", "\<\"x3\"\>", 
+        ",", "\<\"x9\"\>"}], "}"}]}], "}"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"z1\"\>", ",", "\<\"x8\"\>", ",", "\<\"z9\"\>"}], "}"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"x7\"\>", ",", "\<\"z8\"\>", ",", "\<\"z1\"\>", 
+        ",", "\<\"x12\"\>"}], "}"}]}], "}"}], "}"}]}], "}"}]], "Print",
+ CellChangeTimes->{{3.650349999320229*^9, 3.650350002334257*^9}}],
+
+Cell[BoxData["\<\"The following pairs of operators don't commute: \"\>"], \
+"Print",
+ CellChangeTimes->{{3.650349999320229*^9, 3.650350002337479*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{{3.650349999320229*^9, 3.650350002340724*^9}}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{{3.650349999320229*^9, 3.650350002343939*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", "=", "12"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "x2", ",", "x3", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "x3", ",", "x4", ",", "z9", ",", "x10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "z4", ",", "z5", ",", "z10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "z5", ",", "z6", ",", "x10", ",", "z11"}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"z5", ",", "x6", ",", "x7", ",", "x11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z6", ",", "x7", ",", "x8", ",", "z11", ",", "x12"}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"x7", ",", "z8", ",", "z1", ",", "z12"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x8", ",", "z1", ",", "z2", ",", "z9", ",", "x12", ",", "z9"}], 
+      "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "x2", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "x8", ",", "z9"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeT12", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L", ",", "True"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.650351157241466*^9, 3.650351190167512*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.650351191959918*^9}],
+
+Cell[BoxData["\<\"PROBLEM: a logical operator is anticommuting with a \
+stabilizer generator\"\>"], "Print",
+ CellChangeTimes->{3.650351191962805*^9}],
+
+Cell[BoxData["\<\"The following pairs of operators don't commute: \"\>"], \
+"Print",
+ CellChangeTimes->{3.6503511919670753`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"z1\"\>", ",", "\<\"x8\"\>", ",", "\<\"z9\"\>"}], "}"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"z1\"\>", ",", "\<\"x2\"\>", ",", "\<\"x3\"\>", 
+        ",", "\<\"x9\"\>"}], "}"}]}], "}"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\<\"z1\"\>", ",", "\<\"x8\"\>", ",", "\<\"z9\"\>"}], "}"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{"\<\"x7\"\>", ",", "\<\"z8\"\>", ",", "\<\"z1\"\>", 
+        ",", "\<\"z12\"\>"}], "}"}]}], "}"}], "}"}]}], "}"}]], "Print",
+ CellChangeTimes->{3.65035119197311*^9}],
+
+Cell[BoxData["\<\"The following pairs of operators don't commute: \"\>"], \
+"Print",
+ CellChangeTimes->{3.650351191978894*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{3.65035119198462*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.6503511919902973`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "x2", ",", "x3", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "x3", ",", "x4", ",", "z9", ",", "x10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "z4", ",", "z5", ",", "z10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "z5", ",", "z6", ",", "x10", ",", "z11"}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"z5", ",", "x6", ",", "x7", ",", "x11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z6", ",", "x7", ",", "x8", ",", "z11", ",", "x12"}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"x7", ",", "z8", ",", "z1", ",", "z12"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x8", ",", "z1", ",", "z2", ",", "z9", ",", "x12", ",", "z9"}], 
+      "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "x2", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "x8", ",", "z9"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeT12", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L", ",", "True"}], "]"}]}], "Input"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["5 qubit planar", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "x4", ",", "x5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z3", ",", "z4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z3", ",", "z5"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x4"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP5", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.648869635759673*^9, 3.6488696772314253`*^9}, {
+  3.648869710712943*^9, 3.648869724516006*^9}, {3.648869758710906*^9, 
+  3.64886976170933*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.648869762002597*^9, 3.64890102635842*^9, 
+  3.648901056514842*^9, 3.6501053832142878`*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.648869762002597*^9, 3.64890102635842*^9, 
+  3.648901056514842*^9, 3.6501053832173147`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["6 qubit planar", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871168600494*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "6"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x3", ",", "x4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "x5", ",", "x6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2", ",", "z4", ",", "z5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z4", ",", "z6"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x4", ",", "x6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z4", ",", "z5"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP6", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.648869798870829*^9, 3.648869819496703*^9}, 
+   3.648901371767123*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.6488698210244703`*^9, 3.648901375141914*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.6488698210244703`*^9, 3.6489013751460114`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["7 qubit planar", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871198903105*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "7"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x4", ",", "x3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "x5", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x6", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2", ",", "z4", ",", "z5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z4", ",", "z6", ",", "z7"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x4", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z4", ",", "z5"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP7", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.648901489229423*^9, 3.6489015057028847`*^9}, {
+  3.6489054282329273`*^9, 3.648905430112453*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.648901506853303*^9, 3.648901752757205*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.648901506853303*^9, 3.648901752760315*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", "=", "7"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x4", ",", "x3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "x5", ",", "x6", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2", ",", "z4", ",", "z5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z4", ",", "z6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z5", ",", "z7"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x4", ",", "x6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z4", ",", "z5"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP7b", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.648905416309018*^9, 3.6489054383513823`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.64890543881147*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.648905438813698*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8 qubit planar", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871201282281*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "8"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x4", ",", "x5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x5", ",", "x6", ",", "x7", ",", "x8"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z3", ",", "z5", ",", "z6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z4", ",", "z5", ",", "z7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z6", ",", "z8"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x5", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z4", ",", "z5", ",", "z6"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP8", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6489057021347313`*^9, 3.648905709159891*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.648905712274048*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.6489057122763357`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8b qubit planar", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+   3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+   3.648871201282281*^9}, 3.648997478028398*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "8"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z3", ",", "z5", ",", "z6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x4", ",", "x5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z4", ",", "z5", ",", "z7", ",", "z8"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x5", ",", "x6", ",", "x8"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x7", ",", "x8"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x5", ",", "x8"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z4", ",", "z5", ",", "z6"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP8b", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6489057021347313`*^9, 3.648905709159891*^9}, {
+  3.648997482658225*^9, 3.648997488002605*^9}, {3.64899751854792*^9, 
+  3.648997578656039*^9}, {3.648997658355288*^9, 3.648997695138905*^9}, {
+  3.648997973265089*^9, 3.648997976890238*^9}, {3.648998128685514*^9, 
+  3.64899820964263*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.6489976995903673`*^9, 3.6489979909867887`*^9, 
+  3.648998210291313*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.6489976995903673`*^9, 3.6489979909867887`*^9, 
+  3.648998210295665*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9 qubit planar", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871168600494*^9}, {3.648871202739484*^9, 3.648871202996202*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "9"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2", ",", "z3", ",", "z5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z4", ",", "z7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z5", ",", "z7", ",", "z8", ",", "z9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x4", ",", "x5", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "x5", ",", "x6", ",", "x8"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x8", ",", "x9"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x5", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z4", ",", "z5", ",", "z6"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP9", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.648905955110964*^9, 3.6489059584174747`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.648905960654711*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.648905960657014*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "9"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x8"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x4", ",", "x3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "x5", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x5", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x6", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2", ",", "z4", ",", "z5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z4", ",", "z6", ",", "z7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z8", ",", "z9"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x4", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z4", ",", "z5", ",", "z9"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP9b", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.648924630669532*^9, 3.648924636961595*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.648924639088201*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.648924639090568*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["10 qubit planar", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871168600494*^9}, {3.6488712042194357`*^9, 3.648871204463756*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x4", ",", "x5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "x6", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x5", ",", "x6", ",", "x9", ",", "x10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x8", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z3", ",", "z5", ",", "z6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z6", ",", "z7", ",", "z10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z4", ",", "z5", ",", "z8", ",", "z9"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x5", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z5", ",", "z10"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP10", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.648907046022813*^9, 3.648907053964526*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.648907156915084*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.6489071569179583`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["11 qubit planar", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871168600494*^9}, {3.648871205940627*^9, 3.648871206244049*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "11"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x5", ",", "x6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "x7", ",", "x8"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "x5", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x6", ",", "x7", ",", "x10", ",", "x11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z4", ",", "z5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z3", ",", "z6", ",", "z7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z5", ",", "z6", ",", "z9", ",", "z10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z7", ",", "z8", ",", "z11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z10", ",", "z11"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "x6", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z6", ",", "z10"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP11", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.648909876910593*^9, 3.648909885391446*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.648909886207644*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.6489098862432337`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "11"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"S", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"x1", ",", "x6"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x1", ",", "x2", ",", "x6", ",", "x7"}], "}"}], ",", 
+    RowBox[{
+     RowBox[{"{", "}"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"L", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"x3", ",", "x6", ",", "x9"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"z2", ",", "z6", ",", "z10"}], "}"}]}], "}"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"codeP11", "=", 
+      RowBox[{"{", 
+       RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"checkCodeDefinition", "[", 
+      RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}]}]}]}]}], "Input",
+ CellChangeTimes->{{3.649057812429763*^9, 3.6490578279339867`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["12 qubit planar", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871168600494*^9}, {3.648871207459331*^9, 3.6488712077927523`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "12"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x5", ",", "x6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "x7", ",", "x8"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "x5", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x6", ",", "x7", ",", "x10", ",", "x11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z4", ",", "z5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z3", ",", "z6", ",", "z7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z5", ",", "z6", ",", "z9", ",", "z10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z7", ",", "z8", ",", "z11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z10", ",", "z11", ",", "z12"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x9", ",", "x10", ",", "x12"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "x6", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z6", ",", "z10"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP12", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.648909693805719*^9, 3.648909703154908*^9}},
+ Background->RGBColor[1, 0.85, 0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.648909704637598*^9}],
+
+Cell[BoxData["\<\"PROBLEM: a logical operator is anticommuting with a \
+stabilizer generator\"\>"], "Print",
+ CellChangeTimes->{3.64890970466628*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.648909704672182*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["13 qubit planar", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871168600494*^9}, {3.64887121071211*^9, 3.648871211392371*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "13"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x3", ",", "x5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x4", ",", "x6", ",", "x7", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x5", ",", "x7", ",", "x8", ",", "x10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x9", ",", "x11", ",", "x12"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x10", ",", "x12", ",", "x13"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z4", ",", "z6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z4", ",", "z5", ",", "z7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z5", ",", "z8"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z6", ",", "z9", ",", "z11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z7", ",", "z9", ",", "z10", ",", "z12"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z8", ",", "z10", ",", "z13"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x7", ",", "x12"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z6", ",", "z7", ",", "z8"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeP13", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"checkCodeDefinition", "[", 
+   RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.648906162855214*^9, 3.648906171377157*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.648906176293056*^9, 3.648907514599478*^9, 
+  3.648907658089137*^9, 3.650013585711074*^9, 3.650105393169088*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.648906176293056*^9, 3.648907514599478*^9, 
+  3.648907658089137*^9, 3.650013585711074*^9, 3.650105393204378*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.648871221120294*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["7 qubit color", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871168600494*^9}, {3.648871223006978*^9, 3.648871225244719*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "7"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x4", ",", "x5", ",", "x6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "x4", ",", "x6", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2", ",", "z3", ",", "z4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z4", ",", "z5", ",", "z6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z4", ",", "z6", ",", "z7"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z3", ",", "z7"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeC7", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"checkCodeDefinition", "[", 
+   RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.648906334789818*^9, 3.648906353745797*^9}, {
+  3.648907717220557*^9, 3.648907725450101*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{{3.648907698576006*^9, 3.6489077264890747`*^9}}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{{3.648907698576006*^9, 3.6489077264921627`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9 qubit color", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871168600494*^9}, {3.648871223006978*^9, 3.648871225244719*^9}, {
+  3.6489078449874783`*^9, 3.648907845241982*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "9"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3", ",", "x5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x4", ",", "x5", ",", "x6", ",", "x7", ",", "x8"}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x6", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "x5", ",", "x8", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2", ",", "z3", ",", "z5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z4", ",", "z5", ",", "z6", ",", "z7", ",", "z8"}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z6", ",", "z7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z5", ",", "z8", ",", "z9"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x3", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z3", ",", "z9"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeC9", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6489078504100523`*^9, 3.648907857571604*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.64890785907962*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.648907859084098*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["11 qubit color", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871168600494*^9}, {3.648871226656763*^9, 3.648871233766549*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "11"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x6", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2", ",", "z6", ",", "z7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x6", ",", "x7", ",", "x8", ",", "x11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z6", ",", "z7", ",", "z8", ",", "z11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x8", ",", "x9", ",", "x10", ",", "x11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z8", ",", "z9", ",", "z10", ",", "z11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x9", ",", "x10", ",", "x4", ",", "x5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z9", ",", "z10", ",", "z4", ",", "z5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x2", ",", "x3", ",", "x4", ",", "x7", ",", "x8", ",", "x9"}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z2", ",", "z3", ",", "z4", ",", "z7", ",", "z8", ",", "z9"}], 
+      "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "x1", ",", "x2", ",", "x3", ",", "x4", ",", "x5", ",", "x6", ",", "x7", 
+       ",", "x8", ",", "x9", ",", "x10", ",", "x11"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "z1", ",", "z2", ",", "z3", ",", "z4", ",", "z5", ",", "z6", ",", "z7", 
+       ",", "z8", ",", "z9", ",", "z10", ",", "z11"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeC11", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.648557046779346*^9, 3.648557153740877*^9}, {
+   3.6485594851701117`*^9, 3.648559592090597*^9}, {3.6485596379540854`*^9, 
+   3.64855964015318*^9}, {3.648560150295546*^9, 3.6485601939043207`*^9}, {
+   3.648560273473138*^9, 3.6485602840186853`*^9}, {3.648560634516214*^9, 
+   3.64856072998304*^9}, {3.6485607655555553`*^9, 3.648560792370034*^9}, {
+   3.648560930171358*^9, 3.648560937731089*^9}, {3.6485610560485687`*^9, 
+   3.648561056786524*^9}, {3.6485629782292767`*^9, 3.648562990834186*^9}, {
+   3.648564021181301*^9, 3.6485641197584267`*^9}, {3.648564164678192*^9, 
+   3.648564179747323*^9}, {3.648564221186077*^9, 3.648564228546213*^9}, {
+   3.648784417727592*^9, 3.6487845408202457`*^9}, {3.6487891911475563`*^9, 
+   3.648789191366984*^9}, {3.64886916678187*^9, 3.648869167247654*^9}, 
+   3.648896892676515*^9, {3.648908081379528*^9, 3.648908087993499*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.648908088621687*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.648908088637189*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nQubits", " ", "=", " ", "11"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"S", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x2", ",", "x3", ",", "x4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x3", ",", "x6", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x3", ",", "x4", ",", "x5", ",", "x7", ",", "x8", ",", "x9"}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x5", ",", "x9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z2", ",", "z3", ",", "z4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z3", ",", "z6", ",", "z7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z5", ",", "z9"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z3", ",", "z4", ",", "z5", ",", "z7", ",", "z8", ",", "z9"}], 
+      "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"L", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x1", ",", "x3", ",", "x4", ",", "x7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z1", ",", "z3", ",", "z4", ",", "z7"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"codeC11b", "=", 
+   RowBox[{"{", 
+    RowBox[{"nQubits", ",", "S", ",", "L"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"checkCodeDefinition", "[", 
+  RowBox[{"nQubits", ",", "S", ",", "L"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.648908247306233*^9, 3.6489082543509607`*^9}},
+ Background->RGBColor[1, 0.85, 0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Checking the code definition...\"\>"], "Print",
+ CellChangeTimes->{3.6489082562801657`*^9}],
+
+Cell[BoxData["\<\"PROBLEM: a logical operator is anticommuting with a \
+stabilizer generator\"\>"], "Print",
+ CellChangeTimes->{3.648908256284566*^9}],
+
+Cell[BoxData["\<\"PROBLEM: a pair of the logical operators commute\"\>"], \
+"Print",
+ CellChangeTimes->{3.648908256288184*^9}],
+
+Cell[BoxData["\<\"all checks complete\"\>"], "Print",
+ CellChangeTimes->{3.648908256291718*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["15 qubit GCC", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.6488696953555813`*^9, 3.648869703291325*^9}, {3.648871167720532*^9, 
+  3.648871168600494*^9}, {3.648871235403943*^9, 3.648871239761937*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.6488696027710657`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["XZ noise", "Section",
+ CellChangeTimes->{{3.648868184155259*^9, 3.648868186381465*^9}, {
+  3.6488682520428658`*^9, 3.648868255903021*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<general_codes.nb\>\""}], "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.648868719225705*^9, 3.648868720969335*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Projects/Small codes/general_codes.nb\"\>", True->
+    
+    StyleBox["\<\"/Users/naomi/Projects/Small codes/general_codes.nb\"\>", 
+     "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{"/Users/naomi/Projects/Small codes/general_codes.nb", None},
+   ButtonNote->"/Users/naomi/Projects/Small codes/general_codes.nb"],
+  Annotation[#, "/Users/naomi/Projects/Small codes/general_codes.nb", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.648868709448745*^9, 3.6488687223055773`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Surface codes", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesP5", ",", "polyP5"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planar5.txt\>\""}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesP6", ",", "polyP6"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planar6.txt\>\""}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesP7a", ",", "polyP7a"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planar7a.txt\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesP7b", ",", "polyP7b"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planar7b.txt\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesP8", ",", "polyP8"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planar8.txt\>\""}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6488683350928183`*^9, 3.64886833572436*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesP9", ",", "polyP9"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planar9.txt\>\""}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesP11", ",", "polyP11"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planar11.txt\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"syndromesP12", ",", "polyP12"}], "}"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesP13", ",", "polyP13"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planar13.txt\>\""}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.648825780663892*^9, 3.648825887994822*^9}, {
+   3.64882687896471*^9, 3.6488269339164133`*^9}, 3.648868139391939*^9, 
+   3.648868195129327*^9, {3.648868853333046*^9, 3.648868856946653*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Color codes", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.648868229529429*^9}, {
+   3.6488682613058243`*^9, 3.648868264349725*^9}, 3.648868303542453*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesC7", ",", "polyC7"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/color7.txt\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesC11", ",", "polyC11"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/color11.txt\>\""}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"syndromesC11b", ",", "polyC11b"}], "}"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesGCC15", ",", "polyGCC15"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/gcc15.txt\>\""}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.648868268531649*^9, 3.648868298666355*^9}, {
+  3.648869001073978*^9, 3.6488690148763943`*^9}, {3.6488691916663637`*^9, 
+  3.648869207733141*^9}, {3.6488693447176723`*^9, 3.648869356467808*^9}, {
+  3.648869522950286*^9, 3.648869529449876*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["XZ (px != pz) noise", "Section",
+ CellChangeTimes->{{3.648868184155259*^9, 3.648868186381465*^9}, {
+  3.6488682520428658`*^9, 3.648868255903021*^9}, {3.64886831869496*^9, 
+  3.648868329462997*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<xz_uneven_noise.nb\>\""}], "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.648868758389154*^9, 3.6488687591184587`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Projects/Small codes/xz_uneven_noise.nb\"\>", 
+    True->
+    StyleBox["\<\"/Users/naomi/Projects/Small codes/xz_uneven_noise.nb\"\>", 
+     "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{"/Users/naomi/Projects/Small codes/xz_uneven_noise.nb", None},
+   
+   ButtonNote->"/Users/naomi/Projects/Small codes/xz_uneven_noise.nb"],
+  Annotation[#, "/Users/naomi/Projects/Small codes/xz_uneven_noise.nb", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.648868759474028*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Surface codes", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"{", 
+  RowBox[{"syndromesXZunevenP5", ",", "polyXZunevenP5"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromesXZunevenP6", ",", "polyXZunevenP6"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromesXZunevenP7a", ",", "polyXZunevenP7a"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromesXZunevenP7b", ",", "polyXZunevenP7b"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromesXZunevenP8", ",", "polyXZunevenP8"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromesXZunevenP9", ",", "polyXZunevenP9"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromesXZunevenP9b", ",", "polyXZunevenP9b"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromesXZunevenP13", ",", "polyXZunevenP13"}], "}"}]}], "Input",
+ CellChangeTimes->{{3.648868343935226*^9, 3.648868434624524*^9}, {
+  3.648869018124539*^9, 3.6488690321801567`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Color codes", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.648868444440569*^9, 3.648868445040821*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"{", 
+  RowBox[{"syndromesXZunevenC7", ",", "polyXZunevenC7"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromesXZunevenC11", ",", "polyXZunevenC11"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromesXZunevenGCC15", ",", "polyXZunevenGCC15"}], 
+  "}"}]}], "Input",
+ CellChangeTimes->{{3.648868473710002*^9, 3.648868499918069*^9}, {
+  3.648869035438278*^9, 3.64886904003051*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Depolarizing noise", "Section",
+ CellChangeTimes->{{3.648868184155259*^9, 3.648868186381465*^9}, {
+  3.6488682520428658`*^9, 3.648868255903021*^9}, {3.64886831869496*^9, 
+  3.648868329462997*^9}, {3.648868507534841*^9, 3.6488685097715483`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<depolarizing_noise.nb\>\""}], "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.648868744682884*^9, 3.648868746133256*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Projects/Small codes/depolarizing_noise.nb\"\>", 
+    True->
+    StyleBox["\<\"/Users/naomi/Projects/Small \
+codes/depolarizing_noise.nb\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+    "/Users/naomi/Projects/Small codes/depolarizing_noise.nb", None},
+   ButtonNote->"/Users/naomi/Projects/Small codes/depolarizing_noise.nb"],
+  Annotation[#, "/Users/naomi/Projects/Small codes/depolarizing_noise.nb", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.648868746504529*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Surface codes", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesDepolP5", ",", "polyDepolP5"}], "}"}], " ", "=", 
+   RowBox[{"<<", "\"\<data/planarDepol5.txt\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesDepolP6", ",", "polyDepolP6"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planarDepol6.txt\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesDepolP7a", ",", "polyDepolP7a"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planarDepol7a.txt\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesDepolP7b", ",", "polyDepolP7b"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planarDepol7b.txt\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromesDepolP8", ",", "polyDepolP8"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planarDepol8.txt\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"syndromeDepolP9", ",", "polyDepolP9"}], "}"}], "=", 
+   RowBox[{"<<", "\"\<data/planarDepol9.txt\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromeDepolP9b", ",", "polyDepolP9b"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromeDepolP13", ",", "polyDepolP13"}], "}"}]}], "Input",
+ CellChangeTimes->{{3.648868343935226*^9, 3.648868434624524*^9}, {
+   3.64886852216358*^9, 3.648868574152587*^9}, {3.6489012823529787`*^9, 
+   3.648901284002458*^9}, {3.648905660307322*^9, 3.648905674507078*^9}, {
+   3.648906092004533*^9, 3.648906094859643*^9}, 3.648906125802445*^9, {
+   3.648911037468151*^9, 3.648911044773943*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Color codes", "Subsection",
+ CellChangeTimes->{{3.648868210883854*^9, 3.6488682135964317`*^9}, {
+  3.648868444440569*^9, 3.648868445040821*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"{", 
+  RowBox[{"syndromeDepolC7", ",", "polyDepolC7"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromeDepolC9", ",", "polyDepolC9"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromeDepolC11", ",", "polyDepolC11"}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"syndromeDepolGCC15", ",", "polyDepolGCC15"}], "}"}]}], "Input",
+ CellChangeTimes->{{3.648868473710002*^9, 3.648868499918069*^9}, {
+  3.648868584278297*^9, 3.648868607156599*^9}, {3.648913407874421*^9, 
+  3.648913415044836*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Meausrement error", "Section",
+ CellChangeTimes->{{3.648868798158217*^9, 3.648868806001602*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  RowBox[{
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+     "\"\<depolarizing_noise_ME.nb\>\""}], "]"}], ",", 
+   RowBox[{"Appearance", "->", "\"\<DialogBox\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.648868794374269*^9, 3.648868811418872*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"/Users/naomi/Projects/Small \
+codes/depolarizing_noise_ME.nb\"\>", True->
+    StyleBox["\<\"/Users/naomi/Projects/Small \
+codes/depolarizing_noise_ME.nb\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   Appearance->"DialogBox",
+   BaseStyle->"Hyperlink",
+   ButtonData:>{
+    "/Users/naomi/Projects/Small codes/depolarizing_noise_ME.nb", None},
+   ButtonNote->"/Users/naomi/Projects/Small codes/depolarizing_noise_ME.nb"],
+  Annotation[#, "/Users/naomi/Projects/Small codes/depolarizing_noise_ME.nb", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.648868808403378*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"planar5MEdata", "=", 
+   RowBox[{"<<", "\"\<data/planar5MEdata\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"planar9MEdata", ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6488727958409653`*^9, 3.648872818066043*^9}, {
+  3.648900952772393*^9, 3.648900961434443*^9}}]
+}, Open  ]]
+},
+WindowSize->{808, 620},
+WindowMargins->{{Automatic, -982}, {Automatic, -199}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3894, 102, 322, "Code"],
+Cell[CellGroupData[{
+Cell[4477, 126, 118, 3, 64, "Section"],
+Cell[4598, 131, 139, 3, 30, "Text"],
+Cell[4740, 136, 972, 23, 41, "Output"],
+Cell[5715, 161, 131, 3, 30, "Text"],
+Cell[5849, 166, 963, 22, 41, "Output"],
+Cell[6815, 190, 126, 3, 30, "Text"],
+Cell[6944, 195, 1007, 25, 41, "Output"],
+Cell[7954, 222, 122, 3, 30, "Text"],
+Cell[8079, 227, 988, 24, 41, "Output"],
+Cell[9070, 253, 130, 3, 30, "Text"],
+Cell[9203, 258, 1044, 25, 41, "Output"],
+Cell[10250, 285, 149, 3, 30, "Text"],
+Cell[10402, 290, 1026, 25, 41, "Output"],
+Cell[11431, 317, 151, 3, 30, "Text"],
+Cell[11585, 322, 959, 22, 41, "Output"],
+Cell[12547, 346, 146, 3, 30, "Text"],
+Cell[12696, 351, 1009, 25, 41, "Output"],
+Cell[13708, 378, 336, 4, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14081, 387, 202, 3, 64, "Section"],
+Cell[CellGroupData[{
+Cell[14308, 394, 207, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[14540, 401, 1241, 34, 97, "Input"],
+Cell[CellGroupData[{
+Cell[15806, 439, 133, 1, 22, "Print"],
+Cell[15942, 442, 123, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16114, 449, 1999, 49, 131, "Input"],
+Cell[CellGroupData[{
+Cell[18138, 502, 131, 1, 22, "Print"],
+Cell[18272, 505, 174, 2, 22, "Print"],
+Cell[18449, 509, 150, 2, 22, "Print"],
+Cell[18602, 513, 727, 21, 21, "Print"],
+Cell[19332, 536, 150, 2, 22, "Print"],
+Cell[19485, 540, 110, 2, 21, "Print"],
+Cell[19598, 544, 119, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19766, 551, 1537, 42, 131, "Input"],
+Cell[CellGroupData[{
+Cell[21328, 597, 107, 1, 22, "Print"],
+Cell[21438, 600, 150, 2, 22, "Print"],
+Cell[21591, 604, 128, 2, 22, "Print"],
+Cell[21722, 608, 702, 21, 21, "Print"],
+Cell[22427, 631, 126, 2, 22, "Print"],
+Cell[22556, 635, 85, 2, 21, "Print"],
+Cell[22644, 639, 97, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[22768, 644, 1396, 39, 97, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24201, 688, 155, 2, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[24381, 694, 1147, 34, 97, "Input"],
+Cell[CellGroupData[{
+Cell[25553, 732, 177, 2, 22, "Print"],
+Cell[25733, 736, 165, 2, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25959, 745, 204, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[26188, 752, 1162, 35, 97, "Input"],
+Cell[CellGroupData[{
+Cell[27375, 791, 131, 1, 22, "Print"],
+Cell[27509, 794, 121, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27691, 802, 204, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[27920, 809, 1265, 37, 97, "Input"],
+Cell[CellGroupData[{
+Cell[29210, 850, 129, 1, 22, "Print"],
+Cell[29342, 853, 117, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29508, 860, 1205, 36, 97, "Input"],
+Cell[CellGroupData[{
+Cell[30738, 900, 106, 1, 22, "Print"],
+Cell[30847, 903, 95, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31003, 911, 204, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[31232, 918, 1290, 38, 114, "Input"],
+Cell[CellGroupData[{
+Cell[32547, 960, 107, 1, 22, "Print"],
+Cell[32657, 963, 97, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32815, 971, 229, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[33069, 978, 1531, 42, 114, "Input"],
+Cell[CellGroupData[{
+Cell[34625, 1024, 158, 2, 22, "Print"],
+Cell[34786, 1028, 146, 2, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34993, 1037, 250, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[35268, 1044, 1366, 40, 114, "Input"],
+Cell[CellGroupData[{
+Cell[36659, 1088, 107, 1, 22, "Print"],
+Cell[36769, 1091, 95, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36913, 1098, 1387, 40, 114, "Input"],
+Cell[CellGroupData[{
+Cell[38325, 1142, 107, 1, 22, "Print"],
+Cell[38435, 1145, 95, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38591, 1153, 253, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[38869, 1160, 1456, 42, 114, "Input"],
+Cell[CellGroupData[{
+Cell[40350, 1206, 107, 1, 22, "Print"],
+Cell[40460, 1209, 97, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40618, 1217, 251, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[40894, 1224, 1547, 44, 114, "Input"],
+Cell[CellGroupData[{
+Cell[42466, 1272, 107, 1, 22, "Print"],
+Cell[42576, 1275, 97, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[42700, 1280, 952, 26, 97, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43689, 1311, 253, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[43967, 1318, 1675, 47, 147, "Input"],
+Cell[CellGroupData[{
+Cell[45667, 1369, 107, 1, 22, "Print"],
+Cell[45777, 1372, 149, 2, 22, "Print"],
+Cell[45929, 1376, 95, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46085, 1384, 250, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[46360, 1391, 1745, 49, 131, "Input"],
+Cell[CellGroupData[{
+Cell[48130, 1444, 198, 2, 22, "Print"],
+Cell[48331, 1448, 186, 2, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[48544, 1454, 87, 1, 46, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48668, 1460, 249, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[48942, 1467, 1346, 38, 114, "Input"],
+Cell[CellGroupData[{
+Cell[50313, 1509, 133, 1, 22, "Print"],
+Cell[50449, 1512, 121, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50631, 1520, 300, 4, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[50956, 1528, 1468, 42, 114, "Input"],
+Cell[CellGroupData[{
+Cell[52449, 1574, 106, 1, 22, "Print"],
+Cell[52558, 1577, 95, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52714, 1585, 250, 3, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[52989, 1592, 2746, 61, 165, "Input"],
+Cell[CellGroupData[{
+Cell[55760, 1657, 107, 1, 22, "Print"],
+Cell[55870, 1660, 95, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56014, 1667, 1528, 42, 130, "Input"],
+Cell[CellGroupData[{
+Cell[57567, 1713, 109, 1, 22, "Print"],
+Cell[57679, 1716, 150, 2, 22, "Print"],
+Cell[57832, 1720, 126, 2, 22, "Print"],
+Cell[57961, 1724, 95, 1, 22, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58117, 1732, 248, 3, 44, "Subsection"],
+Cell[58368, 1737, 89, 1, 46, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58506, 1744, 144, 2, 64, "Section"],
+Cell[CellGroupData[{
+Cell[58675, 1750, 335, 8, 28, "Input"],
+Cell[59013, 1760, 735, 18, 41, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[59785, 1783, 103, 1, 44, "Subsection"],
+Cell[59891, 1786, 955, 28, 97, "Input"],
+Cell[60849, 1816, 858, 23, 80, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[61744, 1844, 173, 2, 44, "Subsection"],
+Cell[61920, 1848, 913, 24, 80, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[62882, 1878, 203, 3, 64, "Section"],
+Cell[CellGroupData[{
+Cell[63110, 1885, 339, 8, 46, "Input"],
+Cell[63452, 1895, 723, 19, 41, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64212, 1919, 103, 1, 44, "Subsection"],
+Cell[64318, 1922, 979, 25, 148, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[65334, 1952, 150, 2, 44, "Subsection"],
+Cell[65487, 1956, 444, 11, 63, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[65980, 1973, 250, 3, 64, "Section"],
+Cell[CellGroupData[{
+Cell[66255, 1980, 340, 8, 46, "Input"],
+Cell[66598, 1990, 735, 19, 41, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[67370, 2014, 103, 1, 44, "Subsection"],
+Cell[67476, 2017, 1705, 46, 148, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[69218, 2068, 150, 2, 44, "Subsection"],
+Cell[69371, 2072, 570, 14, 80, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[69990, 2092, 102, 1, 64, "Section"],
+Cell[CellGroupData[{
+Cell[70117, 2097, 343, 8, 46, "Input"],
+Cell[70463, 2107, 747, 19, 41, "Output"]
+}, Open  ]],
+Cell[71225, 2129, 365, 9, 80, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
